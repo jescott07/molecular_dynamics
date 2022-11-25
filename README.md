@@ -62,7 +62,19 @@ Remembering that:
 $a_i = \frac{F_i}{m}$
 </p>
 
-So, if we know the mass and the force acting on the particle then we will also know the acceleration of the particle and then we can determine the position of the particle in every discretized time if we know the incial condition.
+If the force is proporcional to the velocity we also need to compute its solution, remembering that:
+
+<p align="center">
+$v = \frac{\Delta x}{\Delta t}$
+</p>
+
+Then the solution $v_i \approx v(t_i)$ can be computed as:
+
+<p align="center">
+$v_i = \frac{x_{i+1} - x_{i-1}}{2\Delta t}$
+</p>
+
+So, if we know the mass and the force acting on the particle then we will also know the acceleration of the particle and then, from the inicial conditions, we can determine the position of the particle in every discretized time.
 
 We can implement this method through the following pseudo-algorithm:
 
@@ -75,11 +87,12 @@ We can implement this method through the following pseudo-algorithm:
 **Compute x(i+1), t(i+1) for each x(i) and t(i) from $f(x, \dot x, t)$ and $dt$ as discussed above.**
 
 1. Define i = 1.
-2. Define $x(0) = x_i$, $t(0) = t_i$ (the initial condition inputs)
+2. Define $x(0) = x_i$, $v(0) = v_i$ and $t(0) = t_i$ (the initial condition inputs)
 3. Define $x(1) = x(0) + v(0) dt + \frac{1}{2}f(x(0),v(0),t_0)$ dt^2
+4. Define dt2 = $dt^2$
 4. **do**
 
-      x(i+1) = 2x(i) - x(i-1) + f(x(i), v(i), t(i))*dt**2
+      x(i+1) = 2x(i) - x(i-1) + f(x(i), v(i), t(i))*dt2
       
       v(i+1) = (x(i+1) - x(i-1)) / 2dt
       
@@ -99,4 +112,6 @@ A force directed to the center wich decay with the distance (r) to the center, i
   $\vec F = - k \frac{\hat r}{r^\lambda} = - k \frac{\vec r}{r^{\lambda + 1}}$
 </p>
 
-Where, $\vec r = x \hat i + y \hat j + z \hat k$, $k = m$ and $\lambda$ is the decay factor. For Newtonian Gravitation $\lambda = 2$.
+Where, $\vec r$ is a three dimensional vector, $k$ is the proportionality factor and $\lambda$ is the decay factor. For Newtonian Gravitation $\lambda = 2$ and $k=m$.
+
+
