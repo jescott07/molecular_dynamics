@@ -166,15 +166,15 @@ Thus, the kinect and the potential energy oscillates, however, the mechanical en
 
 For $\lambda = 1.5$ we have the space solution:
 
-![](ex1/space_solution_lambda15_2)
+![](ex1/space_solution_lambda15_2.png)
 
 and for $\lambda = 2.5$:
 
-![](ex1/space_solution_lambda25)
+![](ex1/space_solution_lambda25.png)
 
 Notice that for $\lambda = 2.5$ the particle acts like a free particle, i.e. it is ejected from the orbit. This because as $F \propto \lambda^{-1}$ the force under the particle is weeker if we compere to others values of $\lambda$. So, to see the orbit we need a greater value of $k$, thus lets define $k=10000$ and run the program again. So, we have the solution:
 
-![](ex1/space_solution_lambda25_3)
+![](ex1/space_solution_lambda25_3.png)
 
 
 
