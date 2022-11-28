@@ -238,6 +238,20 @@ $x_1 = L(R - 0.5)$
 
 Where $R$ is a random number betwen 0 and 1. We will do the same for the N particles. The inical velocities will be set as null for all particles, so the center of mass velocity will also be zero as well as the total angular momentum.
 
+To analyse how the system evolve, first we define $L = 10$, the number of particles $p = 10$ and we did a animation with the position of the particles in different times:
+
+![](ex2/ex2_animation_l10_p10.mp4)
+
+To analyse how the energy of the system evolve, we defined a biger system with more particles, so we defined $L = 100$, $p = 100$ and ploted the potential energy, the kinect energy and the total energy in each time space as show in the figure below.
+
+![](ex2/ex2_energy_l100_p100.png)
+
+From this image we see that at the begining the kinect and the potential energy of the system
+
+
+
+
+
 
 
 
