@@ -142,7 +142,7 @@ From this force, the energy is:
 $K_i = \frac{1}{2}v_i^2$
 </p>
 
-and for $\lambda < 1$:
+and for $\lambda > 1$:
 
 <p align='center'>
 $U_i = \frac{-k}{\lambda - 1} r_i^{\lambda - 1}$
@@ -164,7 +164,7 @@ From these results we see that for the Newtonian gravitacion we have a closed el
 
 Thus, the kinect and the potential energy oscillates, however, the mechanical energy is conserved.
 
-For $\lambda = 1.5$ we have the space solution:
+For $\lambda = 1.5$ we have the folowing space solution:
 
 ![](ex1/space_solution_lambda15.png)
 
@@ -175,6 +175,68 @@ and for $\lambda = 2.5$:
 Notice that for $\lambda = 2.5$ the particle acts like a free particle, i.e. it is ejected from the orbit. This because as $F \propto \lambda^{-1}$ the force under the particle is weeker if we compere to others values of $\lambda$. So, to see the orbit we need a greater value of $k$, thus lets define $k=10000$ and run the program again. So, we have the solution:
 
 ![](ex1/space_solution_lambda25_2.png)
+
+To have acess to the program and see how he was created, see the ex1 directory in this repository.
+
+## n-body Gravitational System
+
+Now we gone study a very interesting problem, mainly in astrophyscs. A n-body gravitational problem is a system, like a star cluster, with N point masses under gravitacional forces. From the section above, we saw that for Newtonian gravitacion, the potencial is $U(r) \propto r^{-1}$, where $r$ is the distance betwen the masses. Notice that for $r \rightarrow 0$, $U(r) \rightarrow \infty$ witch will lead to numerical problems, so we need to use a modified potencial.
+
+In a pysical system, the limite $r \rightarrow 0$ could lead to big changes in the hole system, such ass a colision of stars. In this example we will not consider this type of implications, insted we wanna find a portencial where $U(r) \rightarrow 0$ for $r \rightarrow 0$ and for $r \gg 1$, $U(r) \propto r^{-1}$, i.e. is equal to the Newtonian gravitacional potencial. So, lets consider the folowing mofified potential:
+
+<p align='center'>
+$U(r) = - m_1 m_2 \frac{1 - e^{-r^2}}{r}$
+</p>
+
+That fulfills all the prerequisites we wanted for a modified potential. But, to use the Verlet metod we need the gravitacional force, not the potencial, so lets determine it. Remembering that:
+
+<p align='center'>
+$F(r) = - \nabla U(r)$
+</p>
+
+<p align='center'>
+$\Rightarrow F(r) = - m_1 m_2 \nabla (\frac{1 - e^{-r^2}}{r}) = \frac{m_1 m_2}{r^2}[1 - e^{-r^2}(1+2r^2)]\hat r$
+</p>
+
+For a pair of particles $i$ and $j$:
+
+<p align='center'>
+$\vec r_{ij} = (\vec r_j - \vec r_i)$
+</p>
+
+Wich is the diffenrence betwen the two particles. Their module is them:
+
+<p align='center'>
+$r_{ij} = |\vec r_{ij}| = |(\vec r_j - \vec r_i)|$
+</p>
+
+Then the force that particle $i$ does on particle $j$ is:
+
+<p align='center'>
+$\vec F_{ij} = \frac{\vec r_j - \vec r_i}{r_{ij}^3} m_i m_j [1 - e^{-r^2}(1 + 2 r_{ij}^2)]$
+</p>
+
+Remembering that:
+
+<p align='center'>
+$\hat r_{ij} = \frac{(\vec r_j - \vec r_i)}{r_{ij}}$
+</p>
+
+And the total energy is:
+
+<p align='center'>
+$E = \frac{1}{2} \Sigma_{i=1}^{N} m v_i^2 + \Sigma_{i < j} U(r_{ij})$
+</p>
+
+To simplify the problem we will set the same mass for all particles and define $m = 1$.
+
+For the inicial conditions, we will set a random position inside a box with volume $L^3$ where $L \gg 1$. Thus, the position of the first particle will be:
+
+<p align='center'>
+$x_1 = L(R - 0.5)$
+</p>
+
+Where $R$ is a random number betwen 0 and 1. We will do the same for the N particles. The inical velocities will be set as null for all particles, so the center of mass velocity will also be zero as well as the total angular momentum.
 
 
 
