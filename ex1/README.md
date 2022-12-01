@@ -1,6 +1,6 @@
 # A Particle Under a Central Force
 
-To execute this example we build a module in Fortran and run it in Python using f2py. To know more about this see the f2py section on this [README](https://github.com/jescott07/solving-differential-equations/blob/main/conv/README.md).
+To execute this example we build a module in Fortran ([ex1.f90](src/ex1.f90)) and run it in Python ([ex1.py](ex1.py)) using f2py. To know more about this see the f2py section on this [README](https://github.com/jescott07/solving-differential-equations/blob/main/conv/README.md).
 
 As [discussed before](../README.md) we wanna compute two 3D vectors, the position and the velocity, besides the energy of the system to every discretized time. With the initial parameters t0 (initial time), dt (step size in time), k and lb ( $\lambda$ ) which are parameters of the equation of motion. So, first, let's define these variables:
 
