@@ -1,5 +1,3 @@
-from cProfile import label
-
 from ex2 import grav as gv
 
 from matplotlib import pyplot as plt
