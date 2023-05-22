@@ -30,7 +30,7 @@ Z = np.zeros(int(gv.p))
 
 k = 0
 while k <= n:
-    for i in range(len(X)): # Gravar a posição em j daz p partículas.
+    for i in range(len(X)): # Gravar a posição em j das p partículas.
         x = gv.x[0,:,i]
         y = gv.x[1,:,i]
         z = gv.x[2,:,i]
